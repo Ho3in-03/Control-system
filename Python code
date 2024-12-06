@@ -1,0 +1,25 @@
+# Simulating a temperature control system
+class TemperatureController:
+    def __init__(self, target_temp):
+        self.target_temp = target_temp  # Target temperature
+        self.current_temp = 25  # Initial temperature
+
+    def adjust_temperature(self):
+        if self.current_temp < self.target_temp:
+            self.current_temp += 1  # Increase temperature
+            print(f"Heating... Current temperature: {self.current_temp}°C")
+        elif self.current_temp > self.target_temp:
+            self.current_temp -= 1  # Decrease temperature
+            print(f"Cooling... Current temperature: {self.current_temp}°C")
+        else:
+            print(f"Target temperature ({self.target_temp}°C) reached!")
+
+# Set the target temperature
+target_temperature = int(input("Enter the target temperature: "))
+controller = TemperatureController(target_temperature)
+
+# Loop to adjust the temperature
+while controller.current_temp != target_temperature:
+    controller.adjust_temperature()
+
+print("Temperature control system stopped.")
